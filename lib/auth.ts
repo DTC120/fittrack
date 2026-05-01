@@ -1,7 +1,11 @@
 import NextAuth, { type AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { compare } from "bcryptjs";
+import { prisma } from "@/lib/prismadb";
 
 export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: "Iniciar sesión",
@@ -14,16 +18,25 @@ export const authOptions: AuthOptions = {
           return null;
         }
 
-        if (credentials.email === "admin@fittrack.com" && credentials.password === "admin123") {
-          return {
-            id: "1",
-            name: "Administrador FitTrack",
-            email: "admin@fittrack.com",
-            role: "admin",
-          };
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
+        });
+
+        if (!user || !user.password) {
+          return null;
         }
 
-        return null;
+        const isValid = await compare(credentials.password, user.password);
+        if (!isValid) {
+          return null;
+        }
+
+        return {
+          id: user.id,
+          name: user.name ?? undefined,
+          email: user.email ?? undefined,
+          role: user.role,
+        } as any;
       },
     }),
   ],

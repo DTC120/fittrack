@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Providers from "@/app/providers";
 
 export const metadata: Metadata = {
   title: "FitTrack",
@@ -10,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className="scroll-smooth">
       <body className="min-h-screen bg-slate-950 text-slate-100 antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

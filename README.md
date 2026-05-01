@@ -27,7 +27,18 @@ npx prisma generate
 npx prisma migrate dev --name init
 ```
 
-4. Inicia la aplicación:
+4. Si quieres poblar la base de datos con contenido inicial:
+
+```bash
+npm run prisma:seed
+```
+
+   Credenciales de administrador de ejemplo:
+
+   - Correo: `admin@fittrack.com`
+   - Contraseña: `admin123`
+
+5. Inicia la aplicación:
 
 ```bash
 npm run dev

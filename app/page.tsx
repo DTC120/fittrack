@@ -1,4 +1,3 @@
-import Dashboard from "@/components/Dashboard";
 import ClassCalendar from "@/components/ClassCalendar";
 import ProductCard from "@/components/ProductCard";
 import Navbar from "@/components/Navbar";
@@ -53,23 +52,23 @@ const upcomingClasses = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <Navbar />
 
       <section className="mx-auto max-w-7xl px-6 py-10 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="space-y-6">
-            <span className="inline-flex rounded-full bg-brand-500/15 px-4 py-1.5 text-sm font-semibold text-brand-200">
+            <span className="inline-flex rounded-full bg-brand-500/15 px-4 py-1.5 text-sm font-semibold text-brand-700 dark:text-brand-200">
               Bienvenido a FitTrack
             </span>
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl dark:text-white">
               Gestiona tu gimnasio, tienda y programación de clases en un solo lugar.
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
               FitTrack es un prototipo moderno creado con Next.js, Prisma y Tailwind CSS para impulsar la experiencia de tu comunidad fitness.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="#dashboard" className="inline-flex items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-brand-400">
+              <a href="/dashboard" className="inline-flex items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-brand-400">
                 Ver Dashboard
               </a>
               <a href="#store" className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500">
@@ -77,27 +76,27 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-slate-950/20">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl shadow-slate-950/10 dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-slate-950/20">
             <div className="space-y-6">
-              <div className="flex items-center justify-between text-slate-300">
+              <div className="flex items-center justify-between text-slate-700 dark:text-slate-300">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.24em] text-brand-300">Métricas de progreso</p>
-                  <h2 className="text-2xl font-semibold text-white">Tu rendimiento en un vistazo</h2>
+                  <p className="text-sm uppercase tracking-[0.24em] text-brand-700 dark:text-brand-200">Métricas de progreso</p>
+                  <h2 className="text-2xl font-semibold text-slate-950 dark:text-white">Tu rendimiento en un vistazo</h2>
                 </div>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl bg-slate-950/90 p-5 ring-1 ring-white/5">
-                  <p className="text-sm text-slate-400">Sesiones esta semana</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">12</p>
+                <div className="rounded-3xl bg-slate-100 p-5 ring-1 ring-slate-200 dark:bg-slate-950/90 dark:ring-white/5">
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Sesiones esta semana</p>
+                  <p className="mt-3 text-3xl font-semibold text-slate-950 dark:text-white">12</p>
                 </div>
-                <div className="rounded-3xl bg-slate-950/90 p-5 ring-1 ring-white/5">
-                  <p className="text-sm text-slate-400">Compras realizadas</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">4</p>
+                <div className="rounded-3xl bg-slate-100 p-5 ring-1 ring-slate-200 dark:bg-slate-950/90 dark:ring-white/5">
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Compras realizadas</p>
+                  <p className="mt-3 text-3xl font-semibold text-slate-950 dark:text-white">4</p>
                 </div>
               </div>
               <div className="rounded-3xl bg-brand-500/10 p-5 ring-1 ring-brand-500/20">
-                <p className="text-sm uppercase tracking-[0.24em] text-brand-200">Meta mensual</p>
-                <p className="mt-3 text-xl font-semibold text-white">Mejorar la retención de miembros y aumentar compras en la tienda.</p>
+                <p className="text-sm uppercase tracking-[0.24em] text-brand-700 dark:text-brand-200">Meta mensual</p>
+                <p className="mt-3 text-xl font-semibold text-slate-950 dark:text-white">Mejorar la retención de miembros y aumentar compras en la tienda.</p>
               </div>
             </div>
           </div>
@@ -106,13 +105,29 @@ export default function Home() {
 
       <section id="dashboard" className="border-t border-slate-800 py-10">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="mb-8 flex items-center justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.24em] text-brand-300">Dashboard de administración</p>
-              <h2 className="mt-2 text-3xl font-semibold text-white">Control de miembros y pagos</h2>
+<div className="mb-8 flex flex-col gap-4 rounded-3xl border border-slate-800 bg-slate-900/80 p-8">
+              <div>
+                <p className="text-sm uppercase tracking-[0.24em] text-brand-300">Dashboard de administración</p>
+                <h2 className="mt-2 text-3xl font-semibold text-white">Control de miembros y pagos</h2>
+              </div>
+              <p className="text-slate-400">
+                Accede al panel administrativo para ver miembros reales, pagos y reservas. Esta sección requiere autenticación.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="/dashboard"
+                  className="inline-flex items-center justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-brand-400"
+                >
+                  Ir al Dashboard
+                </a>
+                <a
+                  href="/api/auth/signin"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500"
+                >
+                  Iniciar sesión
+                </a>
+              </div>
             </div>
-          </div>
-          <Dashboard />
         </div>
       </section>
 

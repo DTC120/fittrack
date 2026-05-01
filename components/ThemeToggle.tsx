@@ -25,7 +25,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 text-slate-200 transition hover:border-slate-500"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-slate-900 transition hover:border-slate-300 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-200"
       aria-label="Alternar tema"
     >
       {isDark ? <Moon size={18} /> : <Sun size={18} />}
